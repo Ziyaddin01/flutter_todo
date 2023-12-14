@@ -4,7 +4,7 @@ import 'package:flutter_todo/pages/home.dart';
 
 void main() => runApp(MaterialApp(
   theme: ThemeData(
-    primaryColor: Colors.blue
+    primaryColor: Colors.yellowAccent
   ),
   home: Home(),
 ));

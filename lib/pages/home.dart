@@ -9,6 +9,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  late String _userToDo;
   List todoList = [];
 
   @override
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
         title: Text('Görüləcək işlərin siyahısı'),
         centerTitle: true,
@@ -37,7 +38,7 @@ class _HomeState extends State<Home> {
                     trailing: IconButton(
                       icon: Icon(
                         Icons.delete_sweep,
-                        color: Colors.blue,
+                        color: Colors.yellowAccent,
                       ),
                       onPressed: () {
                         setState(() {
@@ -64,10 +65,20 @@ class _HomeState extends State<Home> {
               title: Text('Element elave edin'),
               content: TextField(
                 onChanged: (String value) {
-
+                  _userToDo = value;
                 },
               ),
-            )
+              actions: [
+                ElevatedButton(onPressed: () {
+                  setState(() {
+                    todoList.add(_userToDo);
+                  });
+
+                  Navigator.of(context).pop();
+                }, child: Text('Əlavə et')
+                )
+              ],
+            );
           });
         },
         child: Icon(
