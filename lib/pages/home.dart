@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: Text('Список дел'),
+        title: Text('Görüləcək işlərin siyahısı'),
         centerTitle: true,
       ),
       body: ListView.builder(
@@ -55,7 +55,26 @@ class _HomeState extends State<Home> {
               },
             );
           }
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.greenAccent,
+        onPressed: () {
+          showDialog(context: context, builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Element elave edin'),
+              content: TextField(
+                onChanged: (String value) {
+
+                },
+              ),
+            )
+          });
+        },
+        child: Icon(
+          Icons.add_box,
+          color: Colors.white,
+        )
+      ),
     );
   }
 }
