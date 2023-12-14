@@ -32,8 +32,27 @@ class _HomeState extends State<Home> {
             return Dismissible(
                 key: Key(todoList[index]),
                 child: Card(
-                  child: ListTile(title: Text(todoList[index])),
-                )
+                  child: ListTile(
+                      title: Text(todoList[index]),
+                    trailing: IconButton(
+                      icon: Icon(
+                        Icons.delete_sweep,
+                        color: Colors.blue,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          todoList.removeAt(index);
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              onDismissed: (direction) {
+                  // if(direction == DismissDirection.startToEnd)
+                setState(() {
+                  todoList.removeAt(index);
+                });
+              },
             );
           }
       )
