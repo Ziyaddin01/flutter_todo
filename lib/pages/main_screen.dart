@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
         children: [
           Text('Main Screen', style: TextStyle(color: Colors.white),),
           ElevatedButton(onPressed: () {
-            Navigator.pushNamedAndRemoveUntil(context, '/todo', (route) => false);
+            Navigator.pushReplacementNamed(context, '/todo');
           }, child: Text('Daha da irəli'))
         ],
      )
